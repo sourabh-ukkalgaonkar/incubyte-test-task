@@ -16,8 +16,8 @@ RSpec.describe StringCalculator do
       end
 
       it 'Should return sum of the inputs, eql to 6' do
-        calculator = StringCalculator.new('1,2,3')
-        expect(calculator.add).to eq(6)
+        calculator = StringCalculator.new('11,2,3')
+        expect(calculator.add).to eq(16)
       end
 
       it 'Should return sum of the inputs, eql to 9 with \n as well' do

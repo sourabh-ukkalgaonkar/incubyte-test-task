@@ -11,7 +11,7 @@ class StringCalculator
   NEGATIVE_CHAR_SIGN = '-'
 
   def initialize(str)
-    @string = str.gsub('\\n', '').gsub('\n', '')
+    @string = str.gsub('\\n', ',').gsub('\n', ',')
     @custom_delimiter = false
   end
 
@@ -59,6 +59,7 @@ class StringCalculator
     chars = string.split('')
     raise InvalidInputError, 'Invalid Inputs' if chars[0] == delimiter || chars[chars.length - 1] == delimiter
     return 0 if chars.empty?
-    (chars - [@delimiter]).map(&:to_i).inject(:+)
+
+    string.scan(/\d+/).map(&:to_i).inject(:+)
   end
 end
